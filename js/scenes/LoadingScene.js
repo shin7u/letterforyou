@@ -1,3 +1,4 @@
+import TimelineEngine from "../engine/TimelineEngine.js";
 import BaseScene from "../engine/BaseScene.js";
 
 export default class LoadingScene extends BaseScene {
@@ -26,8 +27,28 @@ export default class LoadingScene extends BaseScene {
 
     enter() {
 
-        console.log("Loading Scene Enter");
+                const timeline = new TimelineEngine();
+                
+                timeline
+                
+                    .wait(1000)
+                
+                    .do(() => {
+                    
+                        console.log("Loading...");
+                    
+                    })
+                
+                    .wait(1000)
+                
+                    .do(() => {
+                    
+                        console.log("Prepare Intro");
+                    
+                    })
+                
+                    .play();
 
-    }
+            }
 
 }
