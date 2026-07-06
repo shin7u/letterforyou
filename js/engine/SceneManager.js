@@ -1,32 +1,28 @@
 export default class SceneManager {
 
-    static scenes = {};
+    constructor(app){
 
-    static current = null;
+        this.app=app;
 
-    static register(name, scene) {
-
-        this.scenes[name] = scene;
+        this.current=null;
 
     }
 
-    static start(name) {
+    async load(SceneClass){
 
-        this.current = name;
+        if(this.current){
 
-        const app = document.getElementById("app");
+            this.current.exit();
 
-        const Scene = this.scenes[name];
-
-        if (!Scene) {
-
-            throw new Error(`Scene '${name}' not found`);
+            this.current.destroy();
 
         }
 
-        const instance = new Scene();
+        this.current=new SceneClass(this.app);
 
-        app.innerHTML = instance.render();
+        this.app.innerHTML=this.current.render();
+
+        this.current.enter();
 
     }
 

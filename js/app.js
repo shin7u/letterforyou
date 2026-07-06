@@ -1,5 +1,4 @@
 import CONFIG from "./config.js";
-import Loader from "./loader.js";
 
 import SceneManager from "./engine/SceneManager.js";
 
@@ -7,18 +6,10 @@ import LoadingScene from "./scenes/LoadingScene.js";
 
 console.clear();
 
-console.log(
-    `%c${CONFIG.APP_NAME}`,
-    "font-size:22px;color:#ff7aa8;font-weight:bold;"
-);
+console.log(CONFIG.APP_NAME);
 
-Loader.init();
+const app=document.getElementById("app");
 
-SceneManager.register(
-    "loading",
-    LoadingScene
-);
+const scene=new SceneManager(app);
 
-SceneManager.start(
-    CONFIG.START_SCENE
-);
+scene.load(LoadingScene);

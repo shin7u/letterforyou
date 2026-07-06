@@ -1,4 +1,6 @@
-export default class LoadingScene {
+import BaseScene from "../engine/BaseScene.js";
+
+export default class LoadingScene extends BaseScene {
 
     render() {
 
@@ -19,6 +21,12 @@ export default class LoadingScene {
 
             </section>
         `;
+
+    }
+
+    enter() {
+
+        console.log("Loading Scene Enter");
 
     }
 
