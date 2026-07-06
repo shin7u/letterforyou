@@ -1,88 +1,54 @@
-import {
-    fadeToBlack
-} from "../utils/helper.js";
 import BaseScene from "../engine/BaseScene.js";
-import TimelineEngine from "../engine/TimelineEngine.js";
 
 export default class IntroScene extends BaseScene {
 
     render() {
 
         return `
-
             <section class="intro-scene">
 
-                <h1
-                    id="intro-title"
-                    class="intro-title">
+                <div class="intro-container">
 
-                </h1>
+                    <h1 id="intro-title" class="intro-title"></h1>
 
-                <p
-                    id="intro-subtitle"
-                    class="intro-subtitle">
+                    <p id="intro-subtitle" class="intro-subtitle"></p>
 
-                </p>
+                </div>
 
             </section>
-
         `;
 
     }
 
-    enter() {
+    async enter() {
 
-                const title =
-                    document.getElementById("intro-title");
-                
-                const subtitle =
-                    document.getElementById("intro-subtitle");
-                
-                const timeline =
-                    new TimelineEngine();
-                
-                timeline
-                
-                    .wait(600)
-                
-                    .do(()=>{
-                    
-                        title.textContent =
-                            "Untuk Fadia Aryaza.";
-                    
-                        title.classList.add("show");
-                    
-                    })
-                
-                    .wait(2600)
-                
-                    .do(()=>{
-                    
-                        title.classList.remove("show");
-                    
-                    })
-                
-                    .wait(1000)
-                
-                    .do(()=>{
-                    
-                        subtitle.textContent =
-                            "Ada beberapa hal yang belum sempat Mas sampaikan.";
-                    
-                        subtitle.classList.add("show");
-                    
-                    })
-                
-                    .wait(3200)
-                
-                    .do(()=>{
-                    
-                        fadeToBlack();
-                    
-                    })
-                
-                    .play();
-                
-            }
+        const title = document.getElementById("intro-title");
+        const subtitle = document.getElementById("intro-subtitle");
+
+        title.textContent = "Untuk Fadia Aryaza.";
+        title.classList.add("visible");
+
+        await this.wait(2800);
+
+        title.classList.remove("visible");
+
+        await this.wait(1000);
+
+        subtitle.textContent = "Ada beberapa hal yang belum sempat Mas sampaikan.";
+        subtitle.classList.add("visible");
+
+        await this.wait(3500);
+
+        subtitle.classList.remove("visible");
+
+    }
+
+    destroy(){}
+
+    wait(ms){
+
+        return new Promise(resolve=>setTimeout(resolve,ms));
+
+    }
 
 }

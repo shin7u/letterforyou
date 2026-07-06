@@ -1,51 +1,50 @@
 .intro-scene{
 
-    width:100vw;
-
+    width:100%;
     height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
     background:#08111f;
 
-    display:flex;
+}
 
-    justify-content:center;
+.intro-container{
 
-    align-items:center;
-
-    flex-direction:column;
+    text-align:center;
+    padding:40px;
 
 }
 
 .intro-title{
 
-    opacity:0;
-
-    transform:translateY(20px);
-
-    transition:1s;
-
+    font-size:62px;
     color:white;
 
-    font-size:64px;
+    opacity:0;
+
+    transition:1s ease;
 
 }
 
 .intro-subtitle{
 
+    margin-top:30px;
+
+    font-size:22px;
+
+    color:#c7cedb;
+
     opacity:0;
 
-    margin-top:25px;
-
-    transition:1s;
-
-    color:#9ea5bc;
+    transition:1s ease;
 
 }
 
-.show{
+.visible{
 
     opacity:1;
-
-    transform:none;
 
 }
