@@ -1,10 +1,24 @@
+import CONFIG from "./config.js";
+import Loader from "./loader.js";
+
+import SceneManager from "./engine/SceneManager.js";
+
+import LoadingScene from "./scenes/LoadingScene.js";
+
 console.clear();
 
 console.log(
-    "%cProject Kirameki",
-    "font-size:24px;font-weight:bold;color:#ff7aa8;"
+    `%c${CONFIG.APP_NAME}`,
+    "font-size:22px;color:#ff7aa8;font-weight:bold;"
 );
 
-console.log(
-    "Sprint 1 Loaded."
+Loader.init();
+
+SceneManager.register(
+    "loading",
+    LoadingScene
+);
+
+SceneManager.start(
+    CONFIG.START_SCENE
 );
