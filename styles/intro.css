@@ -1,0 +1,51 @@
+.intro-scene{
+
+    width:100vw;
+
+    height:100vh;
+
+    background:#08111f;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+}
+
+.intro-title{
+
+    opacity:0;
+
+    transform:translateY(20px);
+
+    transition:1s;
+
+    color:white;
+
+    font-size:64px;
+
+}
+
+.intro-subtitle{
+
+    opacity:0;
+
+    margin-top:25px;
+
+    transition:1s;
+
+    color:#9ea5bc;
+
+}
+
+.show{
+
+    opacity:1;
+
+    transform:none;
+
+}
