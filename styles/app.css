@@ -21,3 +21,35 @@ body{
     height:100vh;
 
 }
+
+.scene{
+
+    position:absolute;
+
+    inset:0;
+
+}
+
+.screen-fader{
+
+    position:fixed;
+
+    inset:0;
+
+    background:black;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    z-index:9999;
+
+    transition:opacity 1.2s ease;
+
+}
+
+.screen-fader.show{
+
+    opacity:1;
+
+}

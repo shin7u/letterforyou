@@ -1,4 +1,3 @@
-import TimelineEngine from "../engine/TimelineEngine.js";
 import BaseScene from "../engine/BaseScene.js";
 
 export default class LoadingScene extends BaseScene {
@@ -18,6 +17,8 @@ export default class LoadingScene extends BaseScene {
                         Preparing your memories...
                     </p>
 
+                    <div class="loading-spinner"></div>
+
                 </div>
 
             </section>
@@ -25,30 +26,34 @@ export default class LoadingScene extends BaseScene {
 
     }
 
-    enter() {
+    async enter() {
 
-                const timeline = new TimelineEngine();
-                
-                timeline
-                
-                    .wait(1000)
-                
-                    .do(() => {
-                    
-                        console.log("Loading...");
-                    
-                    })
-                
-                    .wait(1000)
-                
-                    .do(() => {
-                    
-                        console.log("Prepare Intro");
-                    
-                    })
-                
-                    .play();
+        await this.wait(1800);
 
-            }
+    }
+
+    exit() {
+
+        const scene = document.querySelector(".loading-scene");
+
+        if (scene) {
+
+            scene.classList.add("fade-out");
+
+        }
+
+    }
+
+    destroy() {}
+
+    wait(ms) {
+
+        return new Promise(resolve => {
+
+            setTimeout(resolve, ms);
+
+        });
+
+    }
 
 }

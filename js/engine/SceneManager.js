@@ -1,28 +1,46 @@
 export default class SceneManager {
 
-    constructor(app){
+    constructor(app) {
 
-        this.app=app;
-
-        this.current=null;
+        this.app = app;
+        this.currentScene = null;
 
     }
 
-    async load(SceneClass){
+    async load(SceneClass) {
 
-        if(this.current){
+        // Cleanup scene sebelumnya
+        if (this.currentScene) {
 
-            this.current.exit();
+            if (typeof this.currentScene.exit === "function") {
+                await this.currentScene.exit();
+            }
 
-            this.current.destroy();
+            if (typeof this.currentScene.destroy === "function") {
+                this.currentScene.destroy();
+            }
 
         }
 
-        this.current=new SceneClass(this.app);
+        // Bersihkan container
+        this.app.innerHTML = "";
 
-        this.app.innerHTML=this.current.render();
+        // Buat scene baru
+        this.currentScene = new SceneClass(this.app);
 
-        this.current.enter();
+        // Render HTML
+        this.app.innerHTML = this.currentScene.render();
+
+        // Jalankan lifecycle
+        if (typeof this.currentScene.enter === "function") {
+            await this.currentScene.enter();
+        }
+
+    }
+
+    getCurrentScene() {
+
+        return this.currentScene;
 
     }
 
