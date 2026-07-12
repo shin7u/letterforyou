@@ -2,9 +2,7 @@ import CONFIG from "./config.js";
 
 import SceneManager from "./engine/SceneManager.js";
 
-import LoadingScene from "./scenes/LoadingScene.js";
-import IntroScene from "./scenes/IntroScene.js";
-import EnvelopeScene from "./scenes/EnvelopeScene.js";
+import StartScene from "./scenes/StartScene.js";
 
 console.clear();
 
@@ -14,12 +12,10 @@ const app = document.getElementById("app");
 
 const scene = new SceneManager(app);
 
+app.sceneManager = scene;
+
 (async () => {
 
-    await scene.load(LoadingScene);
-
-    await scene.load(IntroScene);
-
-    await scene.load(EnvelopeScene);
+    await scene.load(StartScene);
 
 })();

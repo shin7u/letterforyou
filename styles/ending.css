@@ -1,0 +1,133 @@
+.ending-scene{
+
+    position:relative;
+
+    width:100%;
+
+    height:100vh;
+
+    height:100dvh;
+
+    background:#000;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    overflow:hidden;
+
+}
+
+.ending-content{
+
+    text-align:center;
+
+    padding:40px 28px;
+
+    max-width:720px;
+
+}
+
+.ending-line{
+
+    font-family:"Cormorant Garamond", Georgia, serif;
+
+    font-size:clamp(24px, 4.5vw, 36px);
+
+    font-weight:400;
+
+    line-height:1.6;
+
+    color:rgba(255,255,255,.92);
+
+    opacity:0;
+
+    transition:opacity 1.2s ease;
+
+    margin:0;
+
+}
+
+.ending-line + .ending-line{
+
+    margin-top:28px;
+
+}
+
+.ending-line.is-visible{
+
+    opacity:1;
+
+}
+
+.ending-replay-btn{
+
+    margin-top:48px;
+
+    padding:14px 36px;
+
+    border:1px solid rgba(255,255,255,.35);
+
+    border-radius:999px;
+
+    background:transparent;
+
+    font-family:"Cormorant Garamond", Georgia, serif;
+
+    font-size:20px;
+
+    font-weight:600;
+
+    letter-spacing:.06em;
+
+    color:rgba(255,255,255,.9);
+
+    cursor:pointer;
+
+    opacity:0;
+
+    transition:opacity 700ms ease;
+
+}
+
+.ending-replay-btn.is-visible{
+
+    opacity:1;
+
+}
+
+.ending-replay-btn[hidden]{
+
+    display:none;
+
+}
+
+.ending-replay-btn:not([hidden]){
+
+    display:inline-block;
+
+}
+
+@media (max-width:600px){
+
+    .ending-content{
+
+        padding:32px 20px;
+
+    }
+
+    .ending-line + .ending-line{
+
+        margin-top:22px;
+
+    }
+
+    .ending-replay-btn{
+
+        margin-top:40px;
+
+    }
+
+}

@@ -1,0 +1,148 @@
+.start-scene{
+
+    width:100%;
+
+    height:100vh;
+
+    height:100dvh;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:32px 24px;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 40%,
+            #142033 0%,
+            #08111f 52%,
+            #050912 100%);
+
+    opacity:1;
+
+    transition:opacity 900ms ease;
+
+}
+
+.start-scene.is-leaving{
+
+    opacity:0;
+
+}
+
+.start-content{
+
+    width:min(680px, 100%);
+
+    text-align:center;
+
+}
+
+.start-title{
+
+    font-family:"Cormorant Garamond", Georgia, serif;
+
+    font-size:clamp(36px, 8vw, 56px);
+
+    font-weight:600;
+
+    line-height:1.2;
+
+    color:rgba(255,255,255,.96);
+
+    margin-bottom:42px;
+
+}
+
+.start-message{
+
+    display:grid;
+
+    gap:16px;
+
+    margin-bottom:46px;
+
+}
+
+.start-message p{
+
+    font-family:"Noto Serif", Georgia, serif;
+
+    font-size:clamp(16px, 2.4vw, 19px);
+
+    line-height:1.8;
+
+    color:rgba(255,255,255,.78);
+
+}
+
+.start-button{
+
+    padding:14px 42px;
+
+    border:1px solid rgba(255,255,255,.38);
+
+    border-radius:999px;
+
+    background:transparent;
+
+    font-family:"Cormorant Garamond", Georgia, serif;
+
+    font-size:21px;
+
+    font-weight:600;
+
+    letter-spacing:.08em;
+
+    color:rgba(255,255,255,.94);
+
+    cursor:pointer;
+
+    transition:
+        border-color 240ms ease,
+        color 240ms ease,
+        opacity 240ms ease;
+
+}
+
+.start-button:hover,
+.start-button:focus-visible{
+
+    border-color:rgba(255,255,255,.72);
+
+    color:#fff;
+
+}
+
+.start-button:disabled{
+
+    cursor:default;
+
+    opacity:.55;
+
+}
+
+@media (max-width:600px){
+
+    .start-scene{
+
+        padding:28px 22px;
+
+    }
+
+    .start-title{
+
+        margin-bottom:34px;
+
+    }
+
+    .start-message{
+
+        margin-bottom:38px;
+
+    }
+
+}

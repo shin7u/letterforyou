@@ -8,6 +8,8 @@ const CONFIG = {
 
     START_SCENE: "loading",
 
+    VIDEO_PATH: "./assets/video/kirameki.mp4",
+
 };
 
 export default CONFIG;
