@@ -42,12 +42,18 @@ export default class LetterScene extends BaseScene {
 
     }
 
-    async enter() {
+    enter() {
 
         const paper = document.querySelector(".letter-paper");
         const title = document.getElementById("letter-title");
         const paragraph = document.getElementById("letter-paragraph");
         const giftBtn = document.getElementById("letter-gift-btn");
+
+        this.playLetter(paper, title, paragraph, giftBtn);
+
+    }
+
+    async playLetter(paper, title, paragraph, giftBtn) {
 
         const { title: letterTitle, paragraphs } =
             await this.loadLetter();

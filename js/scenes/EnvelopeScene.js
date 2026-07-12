@@ -96,15 +96,15 @@ export default class EnvelopeScene extends BaseScene {
         const seal = document.getElementById("seal");
         const scene = document.querySelector(".envelope-scene");
 
-        await wait(500);
-
-        envelope.classList.add("show");
-
         seal.addEventListener("click", () => {
 
             this.handleOpen(envelope, seal, scene);
 
         });
+
+        await wait(500);
+
+        envelope.classList.add("show");
 
     }
 
